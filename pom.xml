@@ -7,6 +7,7 @@
 
 	<properties>
 		<java.version>1.7</java.version>
+		<jacoco.version>0.6.4.201312101107</jacoco.version>
 	</properties>
 
 	<build>
@@ -20,6 +21,27 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
+			</plugin>
+
+			<!-- Generates test coverage report into "target/site/jacoco" directory -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -48,9 +70,9 @@
 			<version>6.8.7</version>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- Following dependency will be changed when 
-			partere will be deployed to Maven central repo -->
+
+		<!-- Following dependency will be changed when partere will be deployed 
+			to Maven central repo -->
 		<dependency>
 			<groupId>net.lkrnac.patere</groupId>
 			<artifactId>patere</artifactId>
