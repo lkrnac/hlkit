@@ -1,0 +1,7 @@
+/.settings/
+/target/
+/test-output/
+/.checkstyle
+/.classpath
+/.pmd
+/.project
