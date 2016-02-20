@@ -1,3 +1,5 @@
+# NOT MAINTAINED
+
 # HLKit
 
 Library for hard link operations on directories
